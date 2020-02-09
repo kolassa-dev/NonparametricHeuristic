@@ -1,7 +1,7 @@
 Package: NonparametricHeuristic
 Type: Package
 Title: Heuristic Tools for Nonparametric Statistics
-Description: This package provides heuristic tools for demonstrating nonparametric statistical techniqes.  It also provides simulation tools for evaluations of these techniques.
+Description: This package provides heuristic tools for demonstrating nonparametric statistical techniqes.  It also provides simulation tools for evaluations of these techniques.  Shared on github via https://kbroman.org/pkg_primer/pages/github.html
 Version: 1.0
 Date: 2019-12-01
 Authors@R: person("John", "Kolassa", email = "kolassa@stat.rutgers.edu", role = c("aut", "cre"))
