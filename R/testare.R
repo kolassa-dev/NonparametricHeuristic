@@ -1,12 +1,12 @@
 #' Check whether powers are the same for sample sizes in the ratio indicated by asymptotic relative efficiency are similar, for sign and t tests, for Laplace variables.
 #'
-#' @param testare Putative relative efficiency, taking a value between 0 and 1.  Set to .5 for Laplace and t to sign test comparison.
+#' @param targetare Putative relative efficiency, taking a value between 0 and 1.  Set to .5 for Laplace and t to sign test comparison.
 #' @param nvec vector of larger sample sizes to try.
 #' @param nsamp number of Monte Carlo samples.
 #' @return A table of powers.
 #'
 #' @examples
-#' testare(.5)
+#' testare(.5,nsamp=100)
 #'
 #' @importFrom stats t.test binom.test
 #' @importFrom VGAM rlaplace

@@ -33,5 +33,6 @@ Expectation, jackknife bias, and true value (via large MC)
 Test bias of the jackknife approach.
 }
 \examples{
-testjack(list(mean,median,mean),dists=list(rexp,rnorm),others=list(NULL,NULL,list(trim=0.25)),nsamp=100)
+testjack(list(mean,median,mean),dists=list(rexp,rnorm),
+   others=list(NULL,NULL,list(trim=0.25)),nsamp=5)
 }

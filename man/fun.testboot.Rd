@@ -36,6 +36,6 @@ A list with two components.  The first is a two-dimensional array of average int
 Compare coverage of bootstrap confidence intervals.
 }
 \examples{
-fun.testboot(function(x,indices) return(c(mean(x[indices]),1)),mcsamp=100)
+fun.testboot(function(x,indices) return(c(mean(x[indices]),1)),mcsamp=100,B=999)
 
 }

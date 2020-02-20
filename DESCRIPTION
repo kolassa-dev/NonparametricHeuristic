@@ -1,7 +1,7 @@
 Package: NonparametricHeuristic
 Type: Package
 Title: Heuristic Tools for Nonparametric Statistics
-Description: This package provides heuristic tools for demonstrating nonparametric statistical techniqes.  It also provides simulation tools for evaluations of these techniques.  Shared on github via https://kbroman.org/pkg_primer/pages/github.html
+Description: Heuristic tools for demonstrating nonparametric statistical techniqes are needed.  This package also provides simulation tools for evaluations of these techniques. 
 Version: 1.0
 Date: 2019-12-01
 Authors@R: person("John", "Kolassa", email = "kolassa@stat.rutgers.edu", role = c("aut", "cre"))
@@ -9,5 +9,4 @@ Maintainer: John Kolassa <kolassa@stat.rutgers.edu>
 License: GPL
 RoxygenNote: 7.0.1
 Encoding: UTF-8
-Imports: BSDA, ICSNP, boot, quantreg, MultNonParam, bootstrap
-Suggests: VGAM
+Imports: BSDA, ICSNP, boot, quantreg, MultNonParam, bootstrap, VGAM

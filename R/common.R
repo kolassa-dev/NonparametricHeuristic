@@ -313,7 +313,7 @@ mood.median.test<-function(x,y,exact=F,alternative="two.sided"){
 #' @return A list with two components.  The first is a two-dimensional array of average interval lengths.  The second is coverage levels.  Dimensions of both are distribution and confidence interval technique.
 #'
 #' @examples
-#' fun.testboot(function(x,indices) return(c(mean(x[indices]),1)),mcsamp=100)
+#' fun.testboot(function(x,indices) return(c(mean(x[indices]),1)),mcsamp=100,B=999)
 #'
 #' @export
 #' @importFrom boot boot boot.ci
@@ -357,7 +357,7 @@ fun.testboot<-function(fcn,sampsize=10,mcsamp=10000,B=9999,dists=c("rnorm","rcau
 #' regparam<-function(data,indices,fittedv,residuals){
 #'    y<-fittedv+residuals[indices]
 #'    return(summary(lm(y~data[,1]))$coefficients[2,1:2]^(1:2))}
-#' fun.testregboot(c("rnorm","rcauchy","rexp"),regparam,mcsamp=100,B=99)
+#' fun.testregboot(c("rnorm","rcauchy","rexp"),regparam,mcsamp=20,B=99)
 #'
 #' @export
 #' @importFrom stats lm qt resid
@@ -712,7 +712,8 @@ stdres2resid<-function(stdres,modelfit=NULL,hat=NULL,stddev=NULL){
 #' @param others list of additional arguments for entries in components of fcns.
 #' @return Expectation, jackknife bias, and true value (via large MC)
 #' @examples
-#' testjack(list(mean,median,mean),dists=list(rexp,rnorm),others=list(NULL,NULL,list(trim=0.25)),nsamp=100)
+#' testjack(list(mean,median,mean),dists=list(rexp,rnorm),
+#'    others=list(NULL,NULL,list(trim=0.25)),nsamp=5)
 #' @importFrom bootstrap jackknife
 #' @importFrom stats rexp
 #' @export

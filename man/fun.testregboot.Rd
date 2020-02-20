@@ -27,6 +27,6 @@ Compare coverage of bootstrap confidence intervals from regression.
 regparam<-function(data,indices,fittedv,residuals){
    y<-fittedv+residuals[indices]
    return(summary(lm(y~data[,1]))$coefficients[2,1:2]^(1:2))}
-fun.testregboot(c("rnorm","rcauchy","rexp"),regparam,mcsamp=100,B=99)
+fun.testregboot(c("rnorm","rcauchy","rexp"),regparam,mcsamp=20,B=99)
 
 }

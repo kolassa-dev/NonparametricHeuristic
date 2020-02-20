@@ -7,11 +7,11 @@
 testare(targetare = 1, nvec = c(20, 100, 1000, 10000), nsamp = 10000)
 }
 \arguments{
+\item{targetare}{Putative relative efficiency, taking a value between 0 and 1.  Set to .5 for Laplace and t to sign test comparison.}
+
 \item{nvec}{vector of larger sample sizes to try.}
 
 \item{nsamp}{number of Monte Carlo samples.}
-
-\item{testare}{Putative relative efficiency, taking a value between 0 and 1.  Set to .5 for Laplace and t to sign test comparison.}
 }
 \value{
 A table of powers.
@@ -20,6 +20,6 @@ A table of powers.
 Check whether powers are the same for sample sizes in the ratio indicated by asymptotic relative efficiency are similar, for sign and t tests, for Laplace variables.
 }
 \examples{
-testare(.5)
+testare(.5,nsamp=100)
 
 }
