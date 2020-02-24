@@ -517,8 +517,8 @@ fun.achievable<-function(){
    for(n in seq(dim(u)[1])) {
       v<-rep(NA,(n+1)/2)
       for(i in seq(length(v))) v[i]<-binom.test(i-1,n)$p.value
-      u[n,4]<-max(v[v<=.05])
       u[n,2]<-sum(v<=.05)-1
+      if(u[n,2]>-1) u[n,4]<-max(v[v<=.05])
       w<-v
       if(n>2){
          for(i in seq(length(w))) w[i]<-z.test(c(rep(0,n-i),
