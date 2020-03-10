@@ -1,4 +1,7 @@
 #' List the achievable p-values for various sample sizes.
+#' @export
+#' @examples
+#' fun.achievable()
 fun.achievable<-function(){
    u<-array(NA,c(41,4))
    for(n in seq(dim(u)[1])) {

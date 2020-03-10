@@ -9,3 +9,6 @@ fun.achievable()
 \description{
 List the achievable p-values for various sample sizes.
 }
+\examples{
+fun.achievable()
+}
