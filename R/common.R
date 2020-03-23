@@ -487,7 +487,7 @@ fun.invertsigntest<-function(dataset,alpha=0.05,maint=NULL,tau=0.5,returndata=FA
    }
    rd<-range(dataset)
    mu<-rd[1]-.2*diff(rd)+ (0:npts)/npts*1.4*diff(rd)
-   statval<-apply(outer(dataset,mu,"-")<=0,2,sum)
+   statval<-apply(outer(dataset,mu,"-")>0,2,sum)
    if(hl){
       a<-qwilcox(alpha/2,mm,nn)
       b<-mm*nn+1-qwilcox(alpha/2,mm,nn)
