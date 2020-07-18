@@ -1,3 +1,11 @@
+#' Draw contours of OLS regression as a function of the two parameters.
+#'
+#' @param x explanatory variable
+#' @param y response variable
+#' @param centerx Logical variable determining whether to center covariate
+#' @param npts number of lattice points on each margin.
+#'
+#' @export
 squaresplot<-function(x,y,centerx=FALSE,npts=100){
    if(centerx) x<-x-mean(x)
    cc<-summary(lm(y~x))$coefficients
