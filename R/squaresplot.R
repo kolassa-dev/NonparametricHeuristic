@@ -5,6 +5,7 @@
 #' @param centerx Logical variable determining whether to center covariate
 #' @param npts number of lattice points on each margin.
 #'
+#' @importFrom graphics plot.default contour.default points.default
 #' @export
 squaresplot<-function(x,y,centerx=FALSE,npts=100){
    if(centerx) x<-x-mean(x)

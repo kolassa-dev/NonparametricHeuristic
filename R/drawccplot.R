@@ -6,6 +6,8 @@
 #' @export
 #' @examples
 #' drawccplot()
+#' @importFrom graphics barplot polygon
+#' @importFrom stats dbinom
 drawccplot<-function(n=10,z=4){
    x<-0:n
    y<-dbinom(x,10,.5)
