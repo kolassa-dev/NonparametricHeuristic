@@ -2,7 +2,7 @@
 % Please edit documentation in R/invertsigntest.R
 \name{invertsigntest}
 \alias{invertsigntest}
-\title{Diagram for the inversion of the sign test to get confidence intervals for a quantile, or, in the two-sample case, the Hodges-Lehman estimator.}
+\title{Diagram for the inversion of rank tests to get confidence intervals for a quantile, or, in the two-sample case, location differences.}
 \usage{
 invertsigntest(
   dataset,
@@ -10,7 +10,10 @@ invertsigntest(
   maint = NULL,
   tau = 0.5,
   returndata = FALSE,
-  npts = 10000
+  npts = 10000,
+  hl = NULL,
+  rescaley = FALSE,
+  newplot = TRUE
 )
 }
 \arguments{
@@ -25,9 +28,15 @@ invertsigntest(
 \item{returndata}{Logical flag determining whether the data set is included as part of the response.}
 
 \item{npts}{number of points at which to evaluate test prior to inversion.}
+
+\item{hl}{logical flag to determine whether to use sign or Mood test (FALSE) or the signed rank or rank sum test (TRUE)}
+
+\item{rescaley}{logical flag to determine whether to rescale the vertical scale to [0,1].}
+
+\item{newplot}{logical flag to start a new plot}
 }
 \description{
-Diagram for the inversion of the sign test to get confidence intervals for a quantile, or, in the two-sample case, the Hodges-Lehman estimator.
+Diagram for the inversion of rank tests to get confidence intervals for a quantile, or, in the two-sample case, location differences.
 }
 \examples{
 invertsigntest(rnorm(12))
