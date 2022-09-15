@@ -20,7 +20,7 @@ invertsigntest<-function(dataset,alpha=0.05,maint=NULL,tau=0.5,returndata=FALSE,
    if(twosamp){
       mm<-length(dataset[[1]])
       nn<-length(dataset[[2]])
-      dataset<-as.vector(outer(dataset[[1]],dataset[[2]],"-"))
+      dataset<-as.vector(outer(dataset[[2]],dataset[[1]],"-"))
 #     browser()
    }else{
       nn<-length(dataset)
@@ -29,9 +29,10 @@ invertsigntest<-function(dataset,alpha=0.05,maint=NULL,tau=0.5,returndata=FALSE,
          dataset<-temp[!upper.tri(temp)]
       }
    }
+   dataset<-sort(dataset)
    rd<-range(dataset)
    mu<-rd[1]-.2*diff(rd)+ (0:npts)/npts*1.4*diff(rd)
-   statval<-apply(outer(dataset,mu,"-")>0,2,sum)
+   statval<-apply(outer(dataset,mu,"-")<0,2,sum)
    if(rescaley){
       mx<-max(statval)
       statval<-statval/mx
@@ -58,18 +59,24 @@ invertsigntest<-function(dataset,alpha=0.05,maint=NULL,tau=0.5,returndata=FALSE,
    }
    maintt<-if(twosamp) "Median Difference" else paste("Quantile",tau,sep=" ")
    if(newplot){
-      plot(range(mu),range(statval),type="n",
+      plot(rd+c(-1,1)*.2*diff(rd),range(statval),type="n",
          ylab=if(twosamp) "Statistic" else "Statistic",
          xlab=if(twosamp) "Location Difference" else "Location",
          sub=paste("Confidence",1-alpha,if(twosamp) "Hodges-Lehman" else "Median",
             "Interval uses order statistics",a,"and",b,sep=" "),
          main=paste("Construction of CI for",maint,maintt,sep=" "))
    }
-   lines(mu,statval)
+   temp<-c(rd[1]-.2*diff(rd),dataset,rd[2]+.2*diff(rd))
+   for(jj in seq(length(temp)-1)){
+      sv<-sum(dataset<=temp[jj])
+      segments(temp[jj],sv,temp[jj+1],sv)
+   }
+#  lines(mu,statval,col=2)
    abline(h=a/mx,lty=2)
    abline(h=(b-1)/mx,lty=2)
    axis(4,at=c(a,b-1),labels=c("a","b-1"))
-   ci<-sort(dataset)[c(a,b)]
+# dataset is already sorted
+   ci<-dataset[c(a,b)]
    for(i in 1:2) abline(v=ci[i],lty=3)
    legend(ci[2]+.01*diff(range(dataset)),b-1/2,
       lty=c(2,3),legend=c("Critical Values","CI Endpoints"))

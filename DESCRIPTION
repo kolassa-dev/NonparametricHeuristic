@@ -1,9 +1,10 @@
 Package: NonparametricHeuristic
 Type: Package
 Title: Heuristic Tools for Nonparametric Statistics
+Authors@R: c(person("John E.", "Kolassa", email = "kolassa@stat.rutgers.edu", role ="cre"))
 Description: Heuristic tools for demonstrating nonparametric statistical techniqes are needed.  This package also provides simulation tools for evaluations of these techniques. 
-Version: 1.1
-Date: 2022-04-16
+Version: 1.2
+Date: 2022-09-15
 Authors@R: person("John", "Kolassa", email = "kolassa@stat.rutgers.edu", role = c("aut", "cre"))
 Maintainer: John Kolassa <kolassa@stat.rutgers.edu>
 License: GPL
