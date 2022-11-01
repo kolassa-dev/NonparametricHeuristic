@@ -25,8 +25,13 @@ invertcor<-function(xxx,yyy){
    dimnames(ci)<-list(c("Pearson","Spearman","Kendall"), c("Lower","Upper"))
    n<-length(xxx)
    sds<-sqrt(c(1/(n-1),1/(n-1),2*(2*n+5)/(9*n*(n-1))))
-   for(i in 1:3) 
-      ci[i,]<-approx(out[,i],regp,xout=c(1,-1)*1.96*sds[i])$y
+   for(i in 1:3){
+      cv<-c(1,-1)*1.96*sds[i]
+#     ci[i,]<-approx(out[,i],regp,xout=cv)$y
+      for(j in 1:2){
+         ci[i,j]<-mean(c(max(regp[out[,i]>cv[j]]),min(regp[out[,i]<cv[j]])))
+      }
+   }
    plot(range(regp),range(out),type="n",
       xlab="Regression Parameter",ylab="Statistic Value",
       main="Construction of Regression Estimates for BP Data",
@@ -36,6 +41,6 @@ invertcor<-function(xxx,yyy){
       for(k in c(-1,1)) abline(h=k*1.96*sds[i],lty=i)
       for(k in 1:2) abline(v=ci[i,k],lty=i)    
    }
-   legend(1.8,.85,legend=dimnames(ci)[[1]],lty=1:3)
+   legend(max(ci)+0.01,.85,legend=dimnames(ci)[[1]],lty=1:3)
    return(ci)
 }
